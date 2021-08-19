@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import com.wangpan.flutter_study.leetcode.SortAction
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
+import java.lang.StringBuilder
+import java.util.*
 
 class MainActivity: FlutterActivity() {
     var mHandler : Handler? = null
@@ -27,7 +30,6 @@ class MainActivity: FlutterActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         asyncHandler()
-
     }
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
@@ -36,15 +38,20 @@ class MainActivity: FlutterActivity() {
         mChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, NATIVE_NAME)
         mChannel?.setMethodCallHandler { call, result ->
             if (call.method == "clickButton") {
-                sendAsyncMsg()
+                clickButton()
             } else {
                 result.notImplemented()
             }
         }
     }
 
-    fun sendAsyncMsg() {
-        mHandler?.sendEmptyMessage(1)
+    fun clickButton() {
+//        mHandler?.sendEmptyMessage(1)
+//        ProduceMode().start()
+        var array = ProduceMode().createSortData()
+        Log.e("wangpan", "原数据：${array.contentToString()}")
+        array = SortAction().heapSort(array)
+        Log.e("wangpan", "排序后数据：${array.contentToString()}")
     }
 
     fun sendMsg2Flutter() {
