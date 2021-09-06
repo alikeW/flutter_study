@@ -47,11 +47,11 @@ class MainActivity: FlutterActivity() {
 
     fun clickButton() {
 //        mHandler?.sendEmptyMessage(1)
-//        ProduceMode().start()
-        var array = ProduceMode().createSortData()
-        Log.e("wangpan", "原数据：${array.contentToString()}")
-        array = SortAction().heapSort(array)
-        Log.e("wangpan", "排序后数据：${array.contentToString()}")
+        ProduceMode().start()
+//        var array = ProduceMode().createSortData()
+//        Log.e("wangpan", "原数据：${array.contentToString()}")
+//        array = SortAction().heapSort(array)
+//        Log.e("wangpan", "排序后数据：${array.contentToString()}")
     }
 
     fun sendMsg2Flutter() {
