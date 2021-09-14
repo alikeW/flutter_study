@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import com.wangpan.flutter_study.design.ProxyDemo
 import com.wangpan.flutter_study.leetcode.SortAction
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -47,11 +48,12 @@ class MainActivity: FlutterActivity() {
 
     fun clickButton() {
 //        mHandler?.sendEmptyMessage(1)
-        ProduceMode().start()
+//        ProduceMode().start()
 //        var array = ProduceMode().createSortData()
 //        Log.e("wangpan", "原数据：${array.contentToString()}")
 //        array = SortAction().heapSort(array)
 //        Log.e("wangpan", "排序后数据：${array.contentToString()}")
+        ProxyDemo().start()
     }
 
     fun sendMsg2Flutter() {

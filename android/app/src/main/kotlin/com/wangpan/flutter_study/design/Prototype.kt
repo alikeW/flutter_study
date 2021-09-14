@@ -2,6 +2,11 @@ package com.wangpan.flutter_study.design
 
 import java.io.*
 
+/**
+ * 原型模式：绕过构造方法创建对象，利用内存直接拷贝对象，提高对象的创建效率
+ * 浅拷贝，基本数据类型，以及对象的引用复制，单是仅仅只拷贝对象的引用，拷贝出的对象数据改变，背拷贝的对象数据一样改变
+ * 深拷贝，基本数据类型，以及对象中的数据都拷贝一遍，拷贝出的对象数据改变，被拷贝的对象数据不变
+ */
 class Prototype : Cloneable {
 
     class Work: Serializable {
@@ -75,9 +80,6 @@ class Prototype : Cloneable {
         }
     }
 
-    //原型模式：绕过构造方法创建对象，利用内存直接拷贝对象，提高对象的创建效率
-    // 浅拷贝，基本数据类型，以及对象的引用复制，单是仅仅只拷贝对象的引用，拷贝出的对象数据改变，背拷贝的对象数据一样改变
-    // 深拷贝，基本数据类型，以及对象中的数据都拷贝一遍，拷贝出的对象数据改变，被拷贝的对象数据不变
     fun start() {
         val p1 = People("张三", "男" , Work("2021", "tencent"))
         val clone: People = p1.clone() as People
